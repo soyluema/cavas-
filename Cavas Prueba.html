@@ -17,8 +17,8 @@
 
         /* Estilo del sobre */
         #envelope {
-            width: 200px;
-            height: 130px;
+            width: 250px;
+            height: 150px;
             position: relative;
             cursor: pointer;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -27,7 +27,7 @@
         }
 
         /* Estilo de la tapa del sobre (parte blanca) */
-        #envelope::before {
+        #envelope .front {
             content: '';
             position: absolute;
             top: 0;
@@ -42,7 +42,7 @@
         }
 
         /* Estilo de la parte trasera del sobre (parte roja) */
-        #envelope::after {
+        #envelope .back {
             content: '';
             position: absolute;
             top: 0;
@@ -73,11 +73,11 @@
         }
 
         /* Animación cuando el sobre se abre */
-        #envelope.open::before {
+        #envelope.open .front {
             transform: rotateX(180deg); /* Giro de la tapa del sobre */
         }
 
-        #envelope.open::after {
+        #envelope.open .back {
             transform: rotateX(0deg); /* Se revela la parte trasera (roja) */
         }
     </style>
@@ -85,6 +85,8 @@
 <body>
 
     <div id="envelope">
+        <div class="front"></div>
+        <div class="back"></div>
         <div id="message">¡Enseñale esto a tu mesero en Cavas Rooftop y obtienes una copa gratis!</div>
     </div>
 
